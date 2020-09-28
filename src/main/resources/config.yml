@@ -1,8 +1,8 @@
 # Feel free to modify the configurations below!
 #
-# If you want to add a mob to the list, make sure you are using 1.16+ mob names.
+# If you want to add a mob to the list, make sure you are using 1.13+ mob names.
 # It doesn't matter if you are on lower versions. it'll work regardless.
-# Here's the link: https://helpch.at/docs/1.16.1/org/bukkit/entity/package-summary.html
+# Here's the link: https://helpch.at/docs/1.13.2/org/bukkit/entity/package-summary.html
 settings:
   # If you want to blacklist mobs, set it to false.
   # If you want to whitelist mobs, set it to true.

@@ -15,3 +15,6 @@ target/classes/me/tofpu/mobpreventer/commands/CommandManager.class
 target/classes/me/tofpu/mobpreventer/Config.class
 target/classes/me/tofpu/mobpreventer/commands/CommandHandler.class
 target/classes/config.yml
+target/classes/me/tofpu/mobpreventer/module/Config.class
+target/classes/me/tofpu/mobpreventer/commands/module/CommandManager.class
+target/classes/me/tofpu/mobpreventer/commands/module/CommandHandler.class
