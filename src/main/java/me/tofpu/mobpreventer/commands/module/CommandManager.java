@@ -1,7 +1,8 @@
-package me.tofpu.mobpreventer.commands;
+package me.tofpu.mobpreventer.commands.module;
 
 import me.tofpu.mobpreventer.MobPreventer;
 import me.tofpu.mobpreventer.Utils;
+import me.tofpu.mobpreventer.commands.module.CommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -18,7 +19,7 @@ public class CommandManager implements CommandExecutor {
     
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("mobpreventer.reload")){
+        if (!sender.hasPermission("mobpreventer.help")){
             sender.sendMessage(Utils.color("&cYou do not have permission to execute this command."));
             return true;
         }

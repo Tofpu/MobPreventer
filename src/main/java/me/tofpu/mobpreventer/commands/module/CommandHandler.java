@@ -1,4 +1,4 @@
-package me.tofpu.mobpreventer.commands;
+package me.tofpu.mobpreventer.commands.module;
 
 import org.bukkit.command.CommandSender;
 

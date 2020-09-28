@@ -2,10 +2,11 @@ package me.tofpu.mobpreventer.commands;
 
 import me.tofpu.mobpreventer.MobPreventer;
 import me.tofpu.mobpreventer.Utils;
+import me.tofpu.mobpreventer.commands.module.CommandHandler;
 import org.bukkit.command.CommandSender;
 
 public class Reload extends CommandHandler {
-    private MobPreventer mobPreventer;
+    private final MobPreventer mobPreventer;
     public Reload(MobPreventer mobPreventer){
         this.mobPreventer = mobPreventer;
         
