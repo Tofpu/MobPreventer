@@ -1,7 +1,7 @@
 name: MobPreventer
 version: 1.0.5
 main: me.tofpu.mobpreventer.MobPreventer
-api-version: 1.16
+api-version: 1.13
 authors: [Tofpu]
 description: A customizeable plugin which its purpose is to prevent certain mobs from spawning.
 commands:

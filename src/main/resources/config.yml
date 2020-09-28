@@ -1,17 +1,23 @@
+# Feel free to modify the configurations below!
+#
+# If you want to add a mob to the list, make sure you are using 1.16+ mob names.
+# It doesn't matter if you are on lower versions. it'll work regardless.
+# Here's the link: https://helpch.at/docs/1.16.1/org/bukkit/entity/package-summary.html
 settings:
-  # If you want to blacklist mobs, keep it to false.
+  # If you want to blacklist mobs, set it to false.
   # If you want to whitelist mobs, set it to true.
   reverse: false
-  # If you want it to be per-world, set it to true
+  # If you want it to be per-world, set it to true.
   per-world: false
-  # If per-world is set to true, blacklist/whitelist would only work on the worlds below.
+  # If per-world is set to true, it'll only work on the listed worlds.
+  # If per-world is set to false, it'll work everywhere.
   worlds:
     - "example-world"
-  # If reverse is set to false. it'll blacklist mobs which is listed below
+  # If reverse is set to false. it'll blacklist mobs which are listed below.
   blacklist:
     - "example1"
     - "example2"
-  # If reverse is set to true. It'll whitelist mobs which is listed below.
+  # If reverse is set to true. It'll whitelist mobs which are listed below.
   whitelist:
     - "example3"
     - "example4"

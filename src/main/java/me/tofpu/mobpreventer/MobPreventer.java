@@ -3,6 +3,7 @@ package me.tofpu.mobpreventer;
 import me.tofpu.mobpreventer.commands.CommandManager;
 import me.tofpu.mobpreventer.commands.Reload;
 import me.tofpu.mobpreventer.listeners.EntitySpawnListener;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -15,11 +16,9 @@ public final class MobPreventer extends JavaPlugin {
         // Plugin startup logic
         this.saveDefaultConfig();
         this.config = new Config(this);
-        
-//        ReloadCommand reloadCommand = new ReloadCommand(this);
-//        PluginCommand reload = getCommand("mobpreventer");
-//        reload.setExecutor(reloadCommand);
-//        reload.setTabCompleter(reloadCommand);
+    
+        int pluginId = 8986;
+        new Metrics(this, pluginId);
         
         CommandManager manager = new CommandManager(this);
         PluginCommand pluginCommand = getCommand("mobpreventer");
