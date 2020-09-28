@@ -1,0 +1,17 @@
+settings:
+  # If you want to blacklist mobs, keep it to false.
+  # If you want to whitelist mobs, set it to true.
+  reverse: false
+  # If you want it to be per-world, set it to true
+  per-world: false
+  # If per-world is set to true, blacklist/whitelist would only work on the worlds below.
+  worlds:
+    - "example-world"
+  # If reverse is set to false. it'll blacklist mobs which is listed below
+  blacklist:
+    - "example1"
+    - "example2"
+  # If reverse is set to true. It'll whitelist mobs which is listed below.
+  whitelist:
+    - "example3"
+    - "example4"
