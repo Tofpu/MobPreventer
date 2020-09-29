@@ -1,11 +1,24 @@
 
+<<<<<<< Updated upstream
 target/original-MobPreventer-1.0.0-SNAPSHOT.jar
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 target/MobPreventer-1.0.0-SNAPSHOT.jar
+=======
+target/classes/config.yml
+target/classes/me/tofpu/mobpreventer/commands/module/CommandHandler.class
+target/classes/me/tofpu/mobpreventer/commands/module/CommandManager.class
+target/classes/me/tofpu/mobpreventer/commands/Reload.class
+target/classes/me/tofpu/mobpreventer/listeners/EntitySpawnListener.class
+target/classes/me/tofpu/mobpreventer/MobPreventer.class
+target/classes/me/tofpu/mobpreventer/module/Config.class
+target/classes/me/tofpu/mobpreventer/Utils.class
+target/classes/plugin.yml
+>>>>>>> Stashed changes
 target/maven-archiver/pom.properties
 target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
 target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+<<<<<<< Updated upstream
 target/classes/plugin.yml
 target/classes/me/tofpu/mobpreventer/Utils.class
 target/classes/me/tofpu/mobpreventer/MobPreventer.class
@@ -18,3 +31,8 @@ target/classes/config.yml
 target/classes/me/tofpu/mobpreventer/module/Config.class
 target/classes/me/tofpu/mobpreventer/commands/module/CommandManager.class
 target/classes/me/tofpu/mobpreventer/commands/module/CommandHandler.class
+=======
+target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+target/MobPreventer-1.0.0-SNAPSHOT.jar
+target/original-MobPreventer-1.0.0-SNAPSHOT.jar
+>>>>>>> Stashed changes
