@@ -11,6 +11,7 @@ import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 
 public class CommandManager implements CommandExecutor, TabCompleter {
@@ -58,7 +59,18 @@ public class CommandManager implements CommandExecutor, TabCompleter {
                 }
             }
             StringUtil.copyPartialMatches(args[0], commands, completions);
+        } else if (args.length == 2){
+            for(CommandHandler handler : CommandManager.commands){
+                if (sender.hasPermission(handler.getPermission()) && args[0].equalsIgnoreCase(handler.getName())){
+                    List<String> list = handler.onTabComplete();
+                    if (list != null){
+                        commands = list;
+                    }
+                }
+            }
+            StringUtil.copyPartialMatches(args[1], commands, completions);
         }
+        
         Collections.sort(completions);
         return completions;
     }

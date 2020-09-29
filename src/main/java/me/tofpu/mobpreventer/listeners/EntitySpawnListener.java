@@ -18,6 +18,11 @@ public class EntitySpawnListener implements Listener {
     public void EntitySpawnEvent(EntitySpawnEvent e) {
         Config config = mobPreventer.getStaticConfig();
         String type = e.getEntityType().toString().replace("_", "");
+        
+        if (SpawnerSpawnListener.getSpawners().contains(e.getEntity().getUniqueId())){
+            SpawnerSpawnListener.getSpawners().remove(e.getEntity().getUniqueId());
+            return;
+        }
     
         if (!config.isReverse()) {
             if (config.isPerWorld()) {

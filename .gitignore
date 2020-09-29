@@ -36,3 +36,5 @@ target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputF
 target/MobPreventer-1.0.0-SNAPSHOT.jar
 target/original-MobPreventer-1.0.0-SNAPSHOT.jar
 >>>>>>> Stashed changes
+*.class
+*.jar

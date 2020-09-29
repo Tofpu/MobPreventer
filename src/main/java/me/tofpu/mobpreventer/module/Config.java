@@ -12,6 +12,7 @@ public class Config {
     private final Set<String> worlds;
     private boolean reverse;
     private boolean perWorld;
+    private boolean spawners;
     
     public Config(MobPreventer mobPreventer) {
         this.mobPreventer = mobPreventer;
@@ -26,6 +27,15 @@ public class Config {
         
         this.reverse = mobPreventer.getConfig().getBoolean("settings.reverse");
         this.perWorld = mobPreventer.getConfig().getBoolean("settings.per-world");
+        
+        for(String keys : mobPreventer.getConfig().getConfigurationSection("settings").getKeys(false)){
+            if (!keys.contains("enable-spawners")){
+                mobPreventer.getConfig().set("settings.enable-spawners", false);
+                mobPreventer.saveConfig();
+            }
+        }
+        
+        this.spawners = mobPreventer.getConfig().getBoolean("settings.enable-spawners");
     }
     
     public void reload(){
@@ -38,6 +48,7 @@ public class Config {
         this.worlds.addAll(this.mobPreventer.getConfig().getStringList("settings.worlds"));
         this.reverse = this.mobPreventer.getConfig().getBoolean("settings.reverse");
         this.perWorld = this.mobPreventer.getConfig().getBoolean("settings.per-world");
+        this.spawners = mobPreventer.getConfig().getBoolean("settings.enable-spawners");
     }
     
     public Set<String> getBlacklist() {
@@ -58,5 +69,23 @@ public class Config {
     
     public boolean isPerWorld() {
         return perWorld;
+    }
+    
+    public boolean isSpawnersEnabled() {
+        return spawners;
+    }
+    
+    public void setPerWorld(boolean perWorld) {
+        this.mobPreventer.getConfig().set("settings.per-world", perWorld);
+        this.perWorld = perWorld;
+        this.mobPreventer.saveConfig();
+//        this.mobPreventer.reloadConfig();
+    }
+    
+    public void setReverse(boolean reverse) {
+        this.mobPreventer.getConfig().set("settings.reverse", reverse);
+        this.reverse = reverse;
+        this.mobPreventer.saveConfig();
+//        this.mobPreventer.reloadConfig();
     }
 }

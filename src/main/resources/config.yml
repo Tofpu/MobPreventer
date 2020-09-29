@@ -9,6 +9,8 @@ settings:
   reverse: false
   # If you want it to be per-world, set it to true.
   per-world: false
+  # By enabling it, If a mob is on the blacklist. it'll still proceed into doing its own thing.
+  enable-spawners: false
   # If per-world is set to true, it'll only work on the listed worlds.
   # If per-world is set to false, it'll work everywhere.
   worlds:
