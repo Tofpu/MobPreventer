@@ -18,7 +18,7 @@ public class EntitySpawnListener implements Listener {
     public void EntitySpawnEvent(EntitySpawnEvent e) {
         Config config = mobPreventer.getStaticConfig();
         String type = e.getEntityType().toString().replace("_", "");
-        
+    
         if (!config.isReverse()) {
             if (config.isPerWorld()) {
                 for (String world : config.getWorlds()) {
@@ -29,39 +29,41 @@ public class EntitySpawnListener implements Listener {
                                 return;
                             }
                         }
-                        return;
                     }
                 }
-    
-                for (String value : config.getBlacklist()) {
-                    if (value.equalsIgnoreCase(type)) {
-                        e.setCancelled(true);
-                        return;
-                    }
-                }
-            } else {
-                if (config.isPerWorld()) {
-                    for (String world : config.getWorlds()) {
-                        if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())) {
-                            for (String value : config.getWhitelist()) {
-                                if (value.equalsIgnoreCase(type)) {
-                                    return;
-                                }
-                            }
-                            e.setCancelled(true);
-                        }
-                        return;
-                    }
-                }
-    
-                for (String value : config.getWhitelist()) {
-                    if (value.equalsIgnoreCase(type)) {
-                        return;
-                    }
-                }
-    
-                e.setCancelled(true);
+                return;
             }
+        
+            for (String value : config.getBlacklist()) {
+                if (value.equalsIgnoreCase(type)) {
+                    e.setCancelled(true);
+                    return;
+                }
+            }
+        
+        } else {
+            if (config.isPerWorld()) {
+                for (String world : config.getWorlds()) {
+                    if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())) {
+                        for (String value : config.getWhitelist()) {
+                            if (value.equalsIgnoreCase(type)) {
+                                return;
+                            }
+                        }
+                        e.setCancelled(true);
+                    }
+                    return;
+                }
+            }
+        
+            for (String value : config.getWhitelist()) {
+                if (value.equalsIgnoreCase(type)) {
+                    return;
+                }
+            }
+        
+            e.setCancelled(true);
+        }
 //        for (String value : config.get()) {
 //            if (!config.isReverse()) { // BLACKLIST
 //                if (value.equalsIgnoreCase(type)) {
@@ -75,6 +77,5 @@ public class EntitySpawnListener implements Listener {
 //            }
 //        }
 //        e.setCancelled(true);
-        }
     }
 }
