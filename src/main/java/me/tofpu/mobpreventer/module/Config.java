@@ -15,33 +15,29 @@ public class Config {
     
     public Config(MobPreventer mobPreventer) {
         this.mobPreventer = mobPreventer;
-    
-        blacklist = new HashSet<>();
-        blacklist.addAll(mobPreventer.getConfig().getStringList("settings.blacklist"));
-    
-        whitelist = new HashSet<>();
-        whitelist.addAll(mobPreventer.getConfig().getStringList("settings.whitelist"));
-    
-        worlds = new HashSet<>();
-        worlds.addAll(mobPreventer.getConfig().getStringList("settings.worlds"));
+        this.blacklist = new HashSet<>();
+        this.blacklist.addAll(mobPreventer.getConfig().getStringList("settings.blacklist"));
         
-        reverse = mobPreventer.getConfig().getBoolean("settings.reverse");
-        perWorld = mobPreventer.getConfig().getBoolean("settings.per-world");
+        this.whitelist = new HashSet<>();
+        this.whitelist.addAll(mobPreventer.getConfig().getStringList("settings.whitelist"));
+        
+        this.worlds = new HashSet<>();
+        this.worlds.addAll(mobPreventer.getConfig().getStringList("settings.worlds"));
+        
+        this.reverse = mobPreventer.getConfig().getBoolean("settings.reverse");
+        this.perWorld = mobPreventer.getConfig().getBoolean("settings.per-world");
     }
     
     public void reload(){
         mobPreventer.reloadConfig();
-        blacklist.clear();
-        blacklist.addAll(mobPreventer.getConfig().getStringList("settings.blacklist"));
-        
-        whitelist.clear();
-        whitelist.addAll(mobPreventer.getConfig().getStringList("settings.whitelist"));
-        
-        worlds.clear();
-        worlds.addAll(mobPreventer.getConfig().getStringList("settings.worlds"));
-        
-        reverse = mobPreventer.getConfig().getBoolean("settings.reverse");
-        perWorld = mobPreventer.getConfig().getBoolean("settings.per-world");
+        this.blacklist.clear();
+        this.blacklist.addAll(this.mobPreventer.getConfig().getStringList("settings.blacklist"));
+        this.whitelist.clear();
+        this.whitelist.addAll(this.mobPreventer.getConfig().getStringList("settings.whitelist"));
+        this.worlds.clear();
+        this.worlds.addAll(this.mobPreventer.getConfig().getStringList("settings.worlds"));
+        this.reverse = this.mobPreventer.getConfig().getBoolean("settings.reverse");
+        this.perWorld = this.mobPreventer.getConfig().getBoolean("settings.per-world");
     }
     
     public Set<String> getBlacklist() {

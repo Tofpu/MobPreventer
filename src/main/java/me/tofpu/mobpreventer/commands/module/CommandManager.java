@@ -6,10 +6,14 @@ import me.tofpu.mobpreventer.commands.module.CommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-public class CommandManager implements CommandExecutor {
+public class CommandManager implements CommandExecutor, TabCompleter {
     private final MobPreventer mobPreventer;
     public static ArrayList<CommandHandler> commands = new ArrayList<>();
     
@@ -40,5 +44,22 @@ public class CommandManager implements CommandExecutor {
         sender.sendMessage(footer);
         
         return false;
+    }
+    
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        // credits to nicuch for this, much love <3
+        List<String> completions = new ArrayList<>();
+        List<String> commands = new ArrayList<>();
+        if (args.length == 1){
+            for(CommandHandler handler : CommandManager.commands){
+                if (sender.hasPermission(handler.getPermission())){
+                    commands.add(handler.getName());
+                }
+            }
+            StringUtil.copyPartialMatches(args[0], commands, completions);
+        }
+        Collections.sort(completions);
+        return completions;
     }
 }

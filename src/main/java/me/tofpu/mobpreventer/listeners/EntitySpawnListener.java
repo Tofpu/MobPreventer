@@ -18,32 +18,13 @@ public class EntitySpawnListener implements Listener {
     public void EntitySpawnEvent(EntitySpawnEvent e) {
         Config config = mobPreventer.getStaticConfig();
         String type = e.getEntityType().toString().replace("_", "");
-    
+        
         if (!config.isReverse()) {
-//            for (String value : config.getBlacklist()) {
-//                if (value.equalsIgnoreCase(type)) {
-//                    if (config.isPerWorld()){
-//                        for(String world : config.getWorlds()){
-//                            if (Bukkit.getWorld(world) != null){
-//                                if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())){
-//                                    e.setCancelled(true);
-//                                    return;
-//                                }
-//                            } else {
-//                                // PRINT SAYING THE WORLD IS NVALID
-//                                return;
-//                            }
-//                        }
-//                    }
-//                    e.setCancelled(true);
-//                    return;
-//                }
-//            }
             if (config.isPerWorld()) {
-                for(String world : config.getWorlds()){
-                    if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())){
-                        for(String value : config.getBlacklist()){
-                            if (value.equalsIgnoreCase(type)){
+                for (String world : config.getWorlds()) {
+                    if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())) {
+                        for (String value : config.getBlacklist()) {
+                            if (value.equalsIgnoreCase(type)) {
                                 e.setCancelled(true);
                                 return;
                             }
@@ -51,31 +32,36 @@ public class EntitySpawnListener implements Listener {
                         return;
                     }
                 }
-                return;
-            }
-            for(String value : config.getBlacklist()){
-                if (value.equalsIgnoreCase(type)){
-                    e.setCancelled(true);
-                    return;
-                }
-            }
-        } else {
-            if (config.isPerWorld()) {
-                for(String world : config.getWorlds()){
-                    if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())){
-                        for(String value : config.getWhitelist()){
-                            if (value.equalsIgnoreCase(type)){
-                                return;
-                            }
-                        }
+    
+                for (String value : config.getBlacklist()) {
+                    if (value.equalsIgnoreCase(type)) {
                         e.setCancelled(true);
+                        return;
                     }
                 }
-                return;
+            } else {
+                if (config.isPerWorld()) {
+                    for (String world : config.getWorlds()) {
+                        if (world.equalsIgnoreCase(e.getEntity().getWorld().getName())) {
+                            for (String value : config.getWhitelist()) {
+                                if (value.equalsIgnoreCase(type)) {
+                                    return;
+                                }
+                            }
+                            e.setCancelled(true);
+                        }
+                        return;
+                    }
+                }
+    
+                for (String value : config.getWhitelist()) {
+                    if (value.equalsIgnoreCase(type)) {
+                        return;
+                    }
+                }
+    
+                e.setCancelled(true);
             }
-            
-            e.setCancelled(true);
-        }
 //        for (String value : config.get()) {
 //            if (!config.isReverse()) { // BLACKLIST
 //                if (value.equalsIgnoreCase(type)) {
@@ -89,5 +75,6 @@ public class EntitySpawnListener implements Listener {
 //            }
 //        }
 //        e.setCancelled(true);
+        }
     }
 }
