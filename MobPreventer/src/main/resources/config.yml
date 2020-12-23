@@ -4,21 +4,31 @@
 # It doesn't matter if you are on lower versions. it'll work regardless.
 # Here's the link: https://helpch.at/docs/1.13.2/org/bukkit/entity/package-summary.html
 settings:
+  # If you want to get notified, keep it to true
+  notify-updates: true
+
   # If you want to blacklist mobs, set it to false.
   # If you want to whitelist mobs, set it to true.
-  reverse: false
+  reverse-blacklist: false
+
   # If you want it to be per-world, set it to true.
   per-world: false
+
   # By enabling it, If a mob is on the blacklist. it'll still proceed into doing its own thing.
   enable-spawners: false
+
   # If per-world is set to true, it'll only work on the listed worlds.
   # If per-world is set to false, it'll work everywhere.
   worlds:
   - "example-world"
+
+
   # If reverse is set to false. it'll blacklist mobs which are listed below.
   blacklist:
   - "example1"
   - "example2"
+
+
   # If reverse is set to true. It'll whitelist mobs which are listed below.
   whitelist:
   - "example3"

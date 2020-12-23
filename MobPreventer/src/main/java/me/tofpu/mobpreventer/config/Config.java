@@ -1,4 +1,4 @@
-package me.tofpu.mobpreventer.module;
+package me.tofpu.mobpreventer.config;
 
 import me.tofpu.mobpreventer.MobPreventer;
 
@@ -25,16 +25,9 @@ public class Config {
         this.worlds = new HashSet<>();
         this.worlds.addAll(mobPreventer.getConfig().getStringList("settings.worlds"));
         
-        this.reverse = mobPreventer.getConfig().getBoolean("settings.reverse");
+        this.reverse = mobPreventer.getConfig().getBoolean("settings.reverse-blacklist");
         this.perWorld = mobPreventer.getConfig().getBoolean("settings.per-world");
-        
-        for(String keys : mobPreventer.getConfig().getConfigurationSection("settings").getKeys(false)){
-            if (!keys.contains("enable-spawners")){
-                mobPreventer.getConfig().set("settings.enable-spawners", false);
-                mobPreventer.saveConfig();
-            }
-        }
-        
+
         this.spawners = mobPreventer.getConfig().getBoolean("settings.enable-spawners");
     }
     
@@ -73,19 +66,5 @@ public class Config {
     
     public boolean isSpawnersEnabled() {
         return spawners;
-    }
-    
-    public void setPerWorld(boolean perWorld) {
-        this.mobPreventer.getConfig().set("settings.per-world", perWorld);
-        this.perWorld = perWorld;
-        this.mobPreventer.saveConfig();
-//        this.mobPreventer.reloadConfig();
-    }
-    
-    public void setReverse(boolean reverse) {
-        this.mobPreventer.getConfig().set("settings.reverse", reverse);
-        this.reverse = reverse;
-        this.mobPreventer.saveConfig();
-//        this.mobPreventer.reloadConfig();
     }
 }

@@ -1,6 +1,5 @@
 package me.tofpu.mobpreventer.commands.module;
 
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 
 import java.util.List;

@@ -2,7 +2,6 @@ package me.tofpu.mobpreventer.commands.module;
 
 import me.tofpu.mobpreventer.MobPreventer;
 import me.tofpu.mobpreventer.Utils;
-import me.tofpu.mobpreventer.commands.module.CommandHandler;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,7 +10,6 @@ import org.bukkit.util.StringUtil;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 
 public class CommandManager implements CommandExecutor, TabCompleter {
