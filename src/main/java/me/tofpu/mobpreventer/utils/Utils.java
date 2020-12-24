@@ -1,4 +1,4 @@
-package me.tofpu.mobpreventer;
+package me.tofpu.mobpreventer.utils;
 
 import org.bukkit.ChatColor;
 

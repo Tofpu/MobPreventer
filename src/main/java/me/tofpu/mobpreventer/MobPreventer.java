@@ -18,12 +18,10 @@ public final class MobPreventer extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         getConfig().options().copyDefaults(true);
-        this.saveDefaultConfig();
+        saveDefaultConfig();
     
-        int pluginId = 8986;
+        final int pluginId = 8986;
         new Metrics(this, pluginId);
-        
-        new Reload(this).register();
 
         init();
         registerCommands();
@@ -40,10 +38,12 @@ public final class MobPreventer extends JavaPlugin {
     }
 
     public void registerCommands(){
-        CommandManager manager = new CommandManager(this);
+        final CommandManager manager = new CommandManager(this);
         PluginCommand pluginCommand = getCommand("mobpreventer");
         pluginCommand.setExecutor(manager);
         pluginCommand.setTabCompleter(manager);
+
+        new Reload(this).register();
     }
 
     public void registerListeners(){

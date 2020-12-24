@@ -1,7 +1,7 @@
 package me.tofpu.mobpreventer.commands;
 
 import me.tofpu.mobpreventer.MobPreventer;
-import me.tofpu.mobpreventer.Utils;
+import me.tofpu.mobpreventer.utils.Utils;
 import me.tofpu.mobpreventer.commands.module.CommandHandler;
 import org.bukkit.command.CommandSender;
 
