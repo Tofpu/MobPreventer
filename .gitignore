@@ -38,3 +38,4 @@ target/original-MobPreventer-1.0.0-SNAPSHOT.jar
 >>>>>>> Stashed changes
 *.class
 *.jar
+.idea/

@@ -19,6 +19,16 @@ public class CreatureSpawnListener implements Listener {
         final Config config = mobPreventer.getStaticConfig();
         final String type = e.getEntityType().toString().replace("_", "").toLowerCase();
 
+        // If Entity is not of interface type Monster then do not proceed.
+        // Type Monster may be in first or second-level interface.
+        if (config.isMonstersOnly()) {
+            final String interface0 = e.getEntity().getClass().getSuperclass().getInterfaces()[0].getSimpleName();
+            final String interface1 = e.getEntity().getClass().getSuperclass().getInterfaces()[0].getInterfaces()[0].getSimpleName();
+            if (!interface0.equalsIgnoreCase("Monster") && !interface1.equalsIgnoreCase("Monster")) {
+                return;
+            }
+        }
+
         if (!config.isSpawnersEnabled()){
             if (e.getSpawnReason() == CreatureSpawnEvent.SpawnReason.SPAWNER){
                 return;

@@ -13,6 +13,7 @@ public class Config {
     private boolean reverse;
     private boolean perWorld;
     private boolean spawners;
+    private boolean monstersOnly;
     
     public Config(MobPreventer mobPreventer) {
         this.mobPreventer = mobPreventer;
@@ -29,6 +30,8 @@ public class Config {
         this.perWorld = mobPreventer.getConfig().getBoolean("settings.per-world");
 
         this.spawners = mobPreventer.getConfig().getBoolean("settings.enable-spawners");
+
+        this.monstersOnly = mobPreventer.getConfig().getBoolean("settings.monsters-only");
     }
     
     public void reload(){
@@ -42,6 +45,7 @@ public class Config {
         this.reverse = this.mobPreventer.getConfig().getBoolean("settings.reverse");
         this.perWorld = this.mobPreventer.getConfig().getBoolean("settings.per-world");
         this.spawners = mobPreventer.getConfig().getBoolean("settings.enable-spawners");
+        this.monstersOnly = this.mobPreventer.getConfig().getBoolean("settings.monsters-only");
     }
     
     public Set<String> getBlacklist() {
@@ -66,5 +70,9 @@ public class Config {
     
     public boolean isSpawnersEnabled() {
         return spawners;
+    }
+
+    public boolean isMonstersOnly() {
+        return monstersOnly;
     }
 }
