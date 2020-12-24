@@ -22,6 +22,10 @@ settings:
   worlds:
   - "example-world"
 
+  # If monsters-only is set to true, it'll only account for 33 Monster type mobs. (Zombie, Witch, etc.)
+  # If monsters-only is set to false, it'll account for all 81 mobs. (Zombie, NPC, Cat, Squid, Chicken, etc.)
+  # 1.16.4 list available here: https://gist.github.com/nanohard/3cce0fa547e70f33969f5debccab3992
+  monsters-only: true
 
   # If reverse is set to false. it'll blacklist mobs which are listed below.
   blacklist:
