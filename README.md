@@ -1,6 +1,7 @@
 ![Spiget Version](https://img.shields.io/spiget/version/84308?color=pink&label=Version&style=for-the-badge)
 ![Spiget Downloads](https://img.shields.io/spiget/downloads/84308?color=pink&style=for-the-badge)
 ![Spiget Stars](https://img.shields.io/spiget/rating/84308?color=pink&label=Stars&style=for-the-badge)
+
 <img src="https://github.com/Tofpu/media/blob/master/images/banners/mobpreventer_banner.png?raw=true">
 
 ---
