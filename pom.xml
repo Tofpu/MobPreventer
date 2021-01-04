@@ -6,12 +6,12 @@
 
     <groupId>me.Tofpu</groupId>
     <artifactId>MobPreventer</artifactId>
-    <version>1.0.10-SNAPSHOT</version>
+    <version>1.0.11-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>MobPreventer</name>
 
-    <description>A customizable plugin which its purpose is to prevent certain mobs from spawning.</description>
+    <description>Prevent certain mobs from spawning into your world</description>
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
