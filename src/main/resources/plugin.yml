@@ -7,3 +7,4 @@ description: A customizeable plugin which its purpose is to prevent certain mobs
 commands:
   mobpreventer:
     description: a command!
+    permission: mobpreventer.use

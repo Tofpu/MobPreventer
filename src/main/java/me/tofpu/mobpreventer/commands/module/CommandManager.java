@@ -15,42 +15,49 @@ import java.util.List;
 public class CommandManager implements CommandExecutor, TabCompleter {
     private final MobPreventer mobPreventer;
     public static ArrayList<CommandHandler> commands = new ArrayList<>();
-    
+
     public CommandManager(MobPreventer mobPreventer) {
         this.mobPreventer = mobPreventer;
     }
-    
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (!sender.hasPermission("mobpreventer.help")){
-            sender.sendMessage(Utils.color("&cYou do not have permission to execute this command."));
-            return true;
+        if (args.length == 0){
+            sender.sendMessage(Utils.prefixColorize("&dYou have to provide an argument!"));
+            sender.sendMessage(Utils.prefixColorize("&dType &5/mobpreventer help &dfor further help!"));
+            return false;
         }
+
+        if (args[0].equalsIgnoreCase("help")){
+            String header = Utils.prefixColorize("&dMobPreventer Commands:");
+            sender.sendMessage(header);
+            commands.forEach(commandHandler ->
+                    sender.sendMessage(Utils.prefixColorize(" &8» &5/mobpreventer " + commandHandler.getName())));
+            return false;
+        }
+
         for(CommandHandler handler : commands){
-            if (args.length != 0 && handler.getName().equals(args[0])){
-                if (sender.hasPermission(handler.getPermission())){
-                    handler.onCommand(sender, args);
-                } else {
-                    sender.sendMessage(Utils.color("&cYou do not have permission to execute this command."));
+            if (handler.getName().equals(args[0])){
+                if (!handler.getPermission().isEmpty()){
+                    if (!sender.hasPermission(handler.getPermission())) return true;
                 }
+                handler.onCommand(sender, args);
                 return true;
             }
         }
-        String header = Utils.color(String.format("&8&m-&d&m-&8&m--|&r &5Mob&dPreventer &5&lV&d%s\n&8&m--|&r &dCommands:\n&8&m----|\n", mobPreventer.getDescription().getVersion()));
-        sender.sendMessage(header);
-        commands.forEach(commandHandler -> sender.sendMessage(Utils.color("&8&m-|&r &8/&5mobpreventer &d" + commandHandler.getName() + " &8- &d" + commandHandler.getDescription())));
-        String footer = Utils.color("&8&m----|&r\n&8&m--|&r &5&lMade &dby Tofpu \n&8&m-&d&m-&8&m--|&r &dStay safe and be careful out there!");
-        sender.sendMessage(footer);
-        
+
+        sender.sendMessage(Utils.prefixColorize("&dThis command does not exist!!"));
+        sender.sendMessage(Utils.prefixColorize("&dType &5/mobpreventer help &dfor further help!"));
         return false;
     }
-    
+
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         // credits to nicuch for this, much love <3
         List<String> completions = new ArrayList<>();
         List<String> commands = new ArrayList<>();
         if (args.length == 1){
+            commands.add("help");
             for(CommandHandler handler : CommandManager.commands){
                 if (sender.hasPermission(handler.getPermission())){
                     commands.add(handler.getName());
@@ -68,7 +75,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
             }
             StringUtil.copyPartialMatches(args[1], commands, completions);
         }
-        
+
         Collections.sort(completions);
         return completions;
     }
