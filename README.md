@@ -2,12 +2,12 @@
 ![Spiget Downloads](https://img.shields.io/spiget/downloads/84308?color=pink&style=for-the-badge)
 ![Spiget Stars](https://img.shields.io/spiget/rating/84308?color=pink&label=Stars&style=for-the-badge)
 
-<img src="https://github.com/Tofpu/media/blob/master/images/banners/mobpreventer_banner.png?raw=true">
+<img src="https://github.com/Tofpu/media/blob/master/images/banners/mobpreventer2_banner.png?raw=true">
 
 ---
 
 ## Description
-A plugin which its purpose is to prevent **certain** mobs from spawning into your world.
+Ever wanted to get rid of a mob that you very much hated? You could with this plugin! from blacklisting it to whitelisting it with per-world support.
 
 ## Version
 It should be able to support Spigot version, 1.8.9 and higher!
@@ -15,7 +15,7 @@ It should be able to support Spigot version, 1.8.9 and higher!
 ## Features
  * The ability to blacklist/whitelist mobs/creatures
  * The ability to make mobs spawn executively on mob spawners only
- * Supports per-world natively
+ * Per-world Support
 
 ## Commands
 *  /mobpreventer - shows all commands - mobpreventer.help
